@@ -1,11 +1,9 @@
 package main
 
-import (
-	"fmt"
-	"github.com/gin-gonic/gin"
-)
+import "github.com/Guiziin227/goapiopportunities.git/router"
 
 func main() {
-	fmt.Println("Hello World")
-	r := gin.Default()
+
+	//Inicialinzando o router
+	router.Initialize()
 }
