@@ -1,17 +1,21 @@
 package main
 
 import (
-	"fmt"
 	"github.com/Guiziin227/goapiopportunities.git/config"
 	"github.com/Guiziin227/goapiopportunities.git/router"
 )
 
+var (
+	logger *config.Logger
+)
+
 func main() {
 
+	logger = config.GetLogger("main")
 	//Initialize config
 	err := config.Init()
 	if err != nil {
-		fmt.Println(err)
+		logger.Errorf("Error initializing config: %v", err)
 		return
 	}
 	//Inicialinzando o router
