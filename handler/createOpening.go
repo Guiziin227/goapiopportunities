@@ -2,11 +2,14 @@ package handler
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func CreateOpeningHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
-		"msg": "POST opening",
-	})
+	request := CreateOpeningRequest{}
+
+	ctx.Bind(&request)
+	if err := db.Create(&request).Error; err != nil {
+		logger.Errorf("Error creating a new opening request: %v", err.Error())
+		return
+	}
 }
