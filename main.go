@@ -9,6 +9,8 @@ var (
 	logger *config.Logger
 )
 
+//testing git
+
 func main() {
 
 	logger = config.GetLogger("main")
